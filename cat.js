@@ -54,13 +54,13 @@ for (let i = 0; i < process.argv.length; i++) {
     continue
   }
   else if (fs.existsSync(`${process.argv[3]}`)) {
-    let file = fs.readFileSync(process.argv[2], 'utf-8')
-    console.log(file)
+    let file2 = fs.readFileSync(process.argv[3], 'utf-8')
+    console.log(file2)
     continue
   }
   else if (fs.existsSync(`${process.argv[4]}`)) {
-    let file = fs.readFileSync(process.argv[2], 'utf-8')
-    console.log(file)
+    let file3 = fs.readFileSync(process.argv[4], 'utf-8')
+    console.log(file3)
     process.exit(1)
   }
 }
