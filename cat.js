@@ -7,7 +7,7 @@ Gestion d'erreur si file.txt n'existe pas.
 
 const fs = require('fs')
 
-/* check des erreurs */
+/* check des erreurs CAT Simple */
 // Pas besoin de vérifier si les arguments sont des nombres car les arguments entré seront forcément des strings
 
 if (process.argv.length !== 3) {
@@ -20,7 +20,17 @@ if (!fs.existsSync(`${process.argv[2]}`)) {
   process.exit(1)
 }
 
-//Boucle pour cat amelioré
+if (fs.existsSync(`${process.argv[2]}`)) {
+  let file = fs.readFileSync(process.argv[2], 'utf-8')
+  console.log(file)
+  process.exit(1)
+}
+
+/************** check des erreurs CAT amélioré *******************/
+if (!fs.existsSync(`${process.argv[2]}`)) {
+  console.log(`Erreur: Ce fichier n'existe pas`)
+  process.exit(1)
+}
 
 if (!fs.existsSync(`${process.argv[3]}`)) {
   console.log(`Erreur: Le second fichier n'a pas été renseigné`)
@@ -52,14 +62,5 @@ for (let i = 0; i < process.argv.length; i++) {
   }
 }
 
-
-/*
-else {
-  fs.writeFile('file.txt', 'Fichier vide', function (contenu) {
-    const fileContent = contenu;
-    console.log(fileContent);
-  });
-}
-*/
 
 
