@@ -20,6 +20,8 @@ if (!fs.existsSync(`${process.argv[2]}`)) {
   process.exit(1)
 }
 
+//Affichage du contenu du fichier
+
 if (fs.existsSync(`${process.argv[2]}`)) {
   let file = fs.readFileSync(process.argv[2], 'utf-8')
   console.log(file)
