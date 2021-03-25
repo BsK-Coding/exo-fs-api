@@ -31,7 +31,7 @@ if (fs.existsSync(`${process.argv[2]}`)) {
 
 /************** check des erreurs CAT amélioré *******************/
 if (process.argv.length !== 5) {
-  console.log(`usage: node echo.js file`)
+  console.log(`usage: node echo.js file file1 file2`)
   process.exit(1)
 }
 
