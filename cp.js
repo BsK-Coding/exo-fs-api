@@ -16,10 +16,8 @@ if (process.argv.length !== 4) {
 }
 
 if (fs.existsSync(`${process.argv[2]}`)) {
-  fs.copyFile('src.txt', 'dst.txt', (err) => {
-    if (err) throw err;
-    console.log(`'Fichier copié !'`);
-  });
+  fs.copyFileSync('src.txt', 'dst.txt')
+  console.log(`le fichier ${process.argv[2]} à été copié`)
 }
 else {
   console.log(`Erreur: Le fichier source ${process.argv[2]} n'existe pas`)
