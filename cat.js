@@ -9,7 +9,7 @@ const fs = require('fs')
 
 /* check des erreurs CAT Simple */
 // Pas besoin de vérifier si les arguments sont des nombres car les arguments entré seront forcément des strings
-
+/*
 if (process.argv.length !== 3) {
   console.log(`usage: node echo.js file`)
   process.exit(1)
@@ -27,6 +27,7 @@ if (fs.existsSync(`${process.argv[2]}`)) {
   console.log(file)
   process.exit(1)
 }
+*/
 
 /************** check des erreurs CAT amélioré *******************/
 if (!fs.existsSync(`${process.argv[2]}`)) {
