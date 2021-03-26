@@ -29,7 +29,7 @@ if (fs.existsSync(`${process.argv[2]}`)) {
 }
 */
 
-/************** check des erreurs CAT amélioré *******************/
+// check des erreurs CAT amélioré 
 if (process.argv.length !== 5) {
   console.log(`usage: node echo.js file file1 file2`)
   process.exit(1)
@@ -52,23 +52,16 @@ if (!fs.existsSync(`${process.argv[4]}`)) {
 
 //Affichage du contenu du/des fichier(s)
 
-for (let i = 0; i < process.argv.length; i++) {
-  if (fs.existsSync(`${process.argv[2]}`)) {
-    let file = fs.readFileSync(process.argv[2], 'utf-8')
+const arg = process.argv.slice(2)
+
+let file = ''
+for (let i = 0; i < (arg.length); i++) {
+  if (fs.existsSync(`${arg[i]}`)) {
+    file = fs.readFileSync(arg[i], 'utf-8')
     console.log(file)
-    continue
   }
-  else if (fs.existsSync(`${process.argv[3]}`)) {
-    let file2 = fs.readFileSync(process.argv[3], 'utf-8')
-    console.log(file2)
+  else {
+    console.log(`!! Le fichier n'existe pas !!`)
     continue
-  }
-  else if (fs.existsSync(`${process.argv[4]}`)) {
-    let file3 = fs.readFileSync(process.argv[4], 'utf-8')
-    console.log(file3)
-    process.exit(1)
   }
 }
-
-
-
