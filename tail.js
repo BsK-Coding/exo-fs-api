@@ -12,11 +12,11 @@ const fs = require('fs')
 
 //Check du nombre d'arguments
 if (process.argv.length !== 3) {
-  console.log(`usage: node echo.js file`)
+  console.log(`usage: node tail.js file`)
   process.exit(1)
 }
 
-//Chech de l'existance de notre fichier
+//Check de l'existance de notre fichier
 if (!fs.existsSync(`${process.argv[2]}`)) {
   console.log(`Erreur: Le fichier n'existe pas`)
   process.exit(1)
