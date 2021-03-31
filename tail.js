@@ -16,6 +16,12 @@ if (process.argv.length !== 3) {
   process.exit(1)
 }
 
+// Check s'il s'agit d'un dossier, grace aux informations contenu dans "stats"
+if ((fs.statSync(process.argv[2])).isDirectory()) {
+  console.log(`Erreur: Il s'agit d'un dossier, merci de renseigner un nom de fichier`)
+  process.exit(1)
+}
+
 //Check de l'existance de notre fichier
 if (!fs.existsSync(`${process.argv[2]}`)) {
   console.log(`Erreur: Le fichier n'existe pas`)
