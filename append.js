@@ -47,12 +47,10 @@ if (!fs.existsSync(`${process.argv[4]}`)) {
 
 if (!fs.existsSync(`${process.argv[5]}`)) {
   console.log(`Erreur: Le fichier de destination n'existe pas`)
-  //Rustine de dépannage en attendant de trouver la commande de création
+  //Rustine de dépannage en attendant de trouver la commande de création de fichier
   fs.copyFileSync('file.txt', 'dst.txt')
   console.log(`le fichier ${process.argv[5]} à été créé`)
-  process.exit(1)
-}
-else {
+
   let openFile = ''
 
   for (const elem of process.argv.slice(2, -1)) {
@@ -61,10 +59,5 @@ else {
   }
   let dstFile = process.argv[process.argv.length - 1]
   fs.writeFileSync(dstFile, openFile.trim())
-
+  process.exit(1)
 }
-
-
-/* programme */
-
-//"process.argv.slice(2, -2)" prend les arguments 2 à last -1 (Qui sera le fichier de destination de copie de contenu)
