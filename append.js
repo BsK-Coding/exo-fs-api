@@ -21,7 +21,7 @@ if (process.argv.length - 1 < 4) {
   process.exit(1)
 }
 
-//Check si Dossier, grace aux informations contenu dans "stats"
+//Check si Dossier au lieu d'un fichier, grace aux informations contenu dans "stats"
 //On aurrait pu l'écrire, également comme ci dessous
 //const stats = fs.statSync(process.argv[2])
 //if (stats.isDirectory()) {}
@@ -45,6 +45,7 @@ if (!fs.existsSync(`${process.argv[4]}`)) {
   process.exit(1)
 }
 
+// Check si fichier de destination existe && copie du contenu des fichiers src à l'intérieur
 if (!fs.existsSync(`${process.argv[5]}`)) {
   console.log(`Erreur: Le fichier de destination n'existe pas`)
   //Rustine de dépannage en attendant de trouver la commande de création de fichier
