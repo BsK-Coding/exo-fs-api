@@ -36,5 +36,5 @@ let fileSplit = file.split(`\n`)
 let aLine = fileSplit.length - nbLine
 
 //Récupération des 10 dernières lignes de notre contenu Split
-let lastLine = fileSplit.slice(aLine)
+let lastLine = fileSplit.slice(aLine).join('\n')
 console.log(lastLine)
