@@ -7,9 +7,9 @@ Gestion d'erreur si file.txt n'existe pas.
 
 const fs = require('fs')
 
-/* check des erreurs CAT Simple */
+/* check des erreurs au passage de la commande */
 // Pas besoin de vérifier si les arguments sont des nombres car les arguments entré seront forcément des strings
-/*
+
 if (process.argv.length !== 3) {
   console.log(`usage: node echo.js file`)
   process.exit(1)
@@ -22,46 +22,5 @@ if (!fs.existsSync(`${process.argv[2]}`)) {
 
 //Affichage du contenu du fichier
 
-if (fs.existsSync(`${process.argv[2]}`)) {
-  let file = fs.readFileSync(process.argv[2], 'utf-8')
-  console.log(file)
-  process.exit(1)
-}
-*/
-
-// check des erreurs CAT amélioré 
-if (process.argv.length !== 5) {
-  console.log(`usage: node echo.js file file1 file2`)
-  process.exit(1)
-}
-
-if (!fs.existsSync(`${process.argv[2]}`)) {
-  console.log(`Erreur: Le premier fichier n'existe pas`)
-  process.exit(1)
-}
-
-if (!fs.existsSync(`${process.argv[3]}`)) {
-  console.log(`Erreur: Le second fichier n'a pas été renseigné`)
-  process.exit(1)
-}
-
-if (!fs.existsSync(`${process.argv[4]}`)) {
-  console.log(`Erreur: Le 3 ieme fichier n'a pas été renseigné`)
-  process.exit(1)
-}
-
-//Affichage du contenu du/des fichier(s)
-
-const arg = process.argv.slice(2)
-
-let file = ''
-for (let i = 0; i < (arg.length); i++) {
-  if (fs.existsSync(`${arg[i]}`)) {
-    file = fs.readFileSync(arg[i], 'utf-8')
-    console.log(file)
-  }
-  else {
-    console.log(`!! Le fichier n'existe pas !!`)
-    continue
-  }
-}
+let file = fs.readFileSync(process.argv[2], 'utf-8')
+console.log(file)
