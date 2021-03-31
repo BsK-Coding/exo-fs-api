@@ -7,7 +7,9 @@ Gestion d'erreur si file.txt n'existe pas.
 
 const fs = require('fs')
 
+//Ajoute les informations concernant l'argument 2
 const stats = fs.statSync(process.argv[2])
+//console.log(stats)
 
 /* check des erreurs au passage de la commande */
 // Pas besoin de vérifier si les arguments sont des nombres car les arguments entré sont toujours en strings
@@ -17,7 +19,7 @@ if (process.argv.length !== 3) {
   process.exit(1)
 }
 
-// Check s'il s'agit d'un dossier
+// Check s'il s'agit d'un dossier, grace aux informations contenu dans "stats"
 if (stats.isDirectory()) {
   console.log(`Erreur: Il s'agit d'un dossier, merci de renseigner un nom de fichier`)
   process.exit(1)
