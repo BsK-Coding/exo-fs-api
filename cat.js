@@ -15,7 +15,7 @@ if (process.argv.length !== 3) {
   process.exit(1)
 }
 
-// Check s'il s'agit d'un dossier, grace aux informations contenu dans "stats"
+// Check s'il s'agit d'un dossier, grace aux informations remonté par contenu dans "stats"
 //On aurrait pu l'écrire, également comme ci dessous
 //const stats = fs.statSync(process.argv[2])
 //if (stats.isDirectory()) {}
