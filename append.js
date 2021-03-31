@@ -52,13 +52,13 @@ if (!fs.existsSync(`${process.argv[5]}`)) {
   fs.copyFileSync('file.txt', 'dst.txt')
   console.log(`le fichier ${process.argv[5]} à été créé`)
 
-  let openFile = ''
+  let dstFile = ''
 
   for (const elem of process.argv.slice(2, -1)) {
     //Lira le contenu des fichiers entré en arguments
-    openFile += fs.readFileSync(elem, 'utf-8') + '\n'
+    dstFile += fs.readFileSync(elem, 'utf-8') + '\n'
   }
-  let dstFile = process.argv[process.argv.length - 1]
-  fs.writeFileSync(dstFile, openFile.trim())
+  let openFile = process.argv[process.argv.length - 1]
+  fs.writeFileSync(openFile, dstFile.trim())
   process.exit(1)
 }
