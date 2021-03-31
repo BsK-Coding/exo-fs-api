@@ -7,14 +7,23 @@ Gestion d'erreur si file.txt n'existe pas.
 
 const fs = require('fs')
 
+const stats = fs.statSync(process.argv[2])
+
 /* check des erreurs au passage de la commande */
-// Pas besoin de vérifier si les arguments sont des nombres car les arguments entré seront forcément des strings
+// Pas besoin de vérifier si les arguments sont des nombres car les arguments entré sont toujours en strings
 
 if (process.argv.length !== 3) {
   console.log(`usage: node echo.js file`)
   process.exit(1)
 }
 
+// Check s'il s'agit d'un dossier
+if (stats.isDirectory()) {
+  console.log(`Erreur: Il s'agit d'un dossier, merci de renseigner un nom de fichier`)
+  process.exit(1)
+}
+
+// Check l'existence du fichier
 if (!fs.existsSync(`${process.argv[2]}`)) {
   console.log(`Erreur: Ce fichier n'existe pas`)
   process.exit(1)
